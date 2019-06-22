@@ -40,19 +40,17 @@ build_script:
 
 for:
   -
-    matrix:
-      after_build:
-        - 7z a asterix.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-x86_64-2.7\*.*
-      artifacts:
-        - path: asterix.zip
-          name: artifacts-all     
+    after_build:
+      - 7z a asterix.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-x86_64-2.7\*.*
+    artifacts:
+      - path: asterix.zip
+        name: artifacts-all     
       
   -
-    matrix:
-      after_build:
-        - 7z a asterix32.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-i686-2.7\*.*
-      artifacts:
-        - path: asterix32.zip
-          name: artifacts32-all  
+    after_build:
+      - 7z a asterix32.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-i686-2.7\*.*
+    artifacts:
+      - path: asterix32.zip
+        name: artifacts32-all  
  
  
