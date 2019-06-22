@@ -35,3 +35,11 @@ build_script:
     - 'echo building...'
     - git clone https://github.com/CroatiaControlLtd/asterix.git
     - '%CYG_BASH% -lc "cd $APPVEYOR_BUILD_FOLDER; exec 0</dev/null; cd asterix && python setup.py install"'
+
+
+after_build:
+  - 7z a asterix.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-i686-2.7\*.*
+
+artifacts:  # Archive the generated packages in the ci.appveyor.com build report.  - path: bin\Debug\*
+  - path: asterix.zip
+    name: artifacts-all
