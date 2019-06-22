@@ -37,14 +37,22 @@ build_script:
     - '%CYG_BASH% -lc "cd $APPVEYOR_BUILD_FOLDER; exec 0</dev/null; cd asterix && python setup.py install"'
 
 
-after_build:
-    matrix:
-        - 7z a asterix.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-x86_64-2.7\*.*
-        - 7z a asterix32.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-i686-2.7\*.*
 
-artifacts:
+for:
+  -
     matrix:
+      after_build:
+        - 7z a asterix.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-x86_64-2.7\*.*
+      artifacts:
         - path: asterix.zip
-          name: artifacts-all
+          name: artifacts-all     
+      
+  -
+    matrix:
+      after_build:
+        - 7z a asterix32.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-i686-2.7\*.*
+      artifacts:
         - path: asterix32.zip
-          name: artifacts32-all
+          name: artifacts32-all  
+ 
+ 
