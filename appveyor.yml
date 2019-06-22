@@ -34,4 +34,4 @@ install:
 build_script:
     - 'echo building...'
     - git clone https://github.com/CroatiaControlLtd/asterix.git
-    - '%CYG_BASH% -lc "cd $APPVEYOR_BUILD_FOLDER; exec 0</dev/null; python setup.py install"'
+    - '%CYG_BASH% -lc "cd $APPVEYOR_BUILD_FOLDER; exec 0</dev/null; cd asterix && python setup.py install"'
