@@ -58,10 +58,3 @@ for:
     artifacts:
       - path: asterix32.zip
         name: artifacts32-all  
- 
- 
-
-
-      only:
-        - configuration: Release
-          my_var3: value3
