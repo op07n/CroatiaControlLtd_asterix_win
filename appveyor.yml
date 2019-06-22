@@ -34,4 +34,4 @@ install:
 build_script:
     - 'echo building...'
     - git clone https://github.com/CroatiaControlLtd/asterix.git
-    - '%CYG_BASH% -lc "cd $APPVEYOR_BUILD_FOLDER; exec 0</dev/null; make LDFLAGS=$LDFLAGS CC=$CC $TARGET CFLAGS=$CFLAGS && make LDFLAGS=$LDFLAGS CC=$CC $TARGET_VARS hiredis-example"'
+    - '%CYG_BASH% -lc "cd $APPVEYOR_BUILD_FOLDER; exec 0</dev/null; python setup.py install"'
