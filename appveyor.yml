@@ -38,8 +38,13 @@ build_script:
 
 
 after_build:
-  - 7z a asterix.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-i686-2.7\*.*
+    matrix:
+        - 7z a asterix.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-x86_64-2.7\*.*
+        - 7z a asterix32.zip %APPVEYOR_BUILD_FOLDER%\asterix\build\lib.cygwin-3.0.6-i686-2.7\*.*
 
-artifacts:  # Archive the generated packages in the ci.appveyor.com build report.  - path: bin\Debug\*
-  - path: asterix.zip
-    name: artifacts-all
+artifacts:
+    matrix:
+        - path: asterix.zip
+          name: artifacts-all
+        - path: asterix32.zip
+          name: artifacts32-all
